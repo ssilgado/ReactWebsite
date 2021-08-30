@@ -10,7 +10,14 @@ pool:
   vmImage: windows-latest
 
 steps:
+# Copy AzureDeploy Files To Staging Directory
+- task: CopyFiles@2
+  inputs:
+    Contents: '**\AzureDeploy\**'
+    TargetFolder: '$(Build.ArtifactStagingDirectory)'
+
+# Publish Artifact
 - task: PublishBuildArtifacts@1
   inputs:
     pathtoPublish: '$(Build.ArtifactStagingDirectory)' 
-    artifactName: 'MLPlaygroundArtifact'
+    artifactName: 'ReactWebsiteArtifact'
