@@ -16,6 +16,13 @@ steps:
     Contents: '**\AzureDeploy\**'
     TargetFolder: '$(Build.ArtifactStagingDirectory)'
 
+# Build Database Project Into Dacpac
+- task: DotNetCoreCLI@2
+  inputs:
+    command: 'build'
+    projects: '**/*.Database.csproj'
+    arguments: '--output $(Build.ArtifactStagingDirectory)'
+
 # Publish Artifact
 - task: PublishBuildArtifacts@1
   inputs:
