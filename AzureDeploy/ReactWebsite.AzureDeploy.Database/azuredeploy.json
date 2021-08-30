@@ -1,0 +1,62 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "environment": {
+            "type": "string",
+            "allowedValues": [
+                "dev",
+                "tst",
+                "prd"
+            ],
+            "defaultValue": "dev"
+        },
+        "resourceGroupLocation": {
+            "type": "object",
+            "defaultValue": {
+                "fullName": "Central US",
+                "shortName": "cus"
+            }
+        },
+        "sqlServerAdminLogin": {
+            "type": "securestring"
+        },
+        "sqlServerAdminPassword": {
+            "type": "securestring"
+        }
+    },
+    "functions": [],
+    "variables": {
+        "projectName": "ReactWebsite",
+        "sqlServerName": "[concat('sqls-', toLower(variables('projectName')), '-', parameters('resourceGroupLocation').shortName, '-', parameters('environment'))]",
+        "sqlDBName": "[concat('sqldb-', toLower(variables('projectName')), '-', parameters('resourceGroupLocation').shortName, '-', parameters('environment'))]"
+    },
+    "resources": [
+        {
+            "type": "Microsoft.Sql/servers",
+            "apiVersion": "2020-02-02-preview",
+            "name": "[variables('sqlServerName')]",
+            "location": "[parameters('resourceGroupLocation').fullName]",
+            "properties": {
+                "administratorLogin": "[parameters('sqlServerAdminLogin')]",
+                "administratorLoginPassword": "[parameters('sqlServerAdminPassword')]"
+            },
+            "resources": [
+                {
+                    "type": "databases",
+                    "apiVersion": "2020-08-01-preview",
+                    "name": "[variables('sqlDBName')]",
+                    "location": "[parameters('resourceGroupLocation').fullName]",
+                    "sku": {
+                        "name": "Basic",
+                        "tier": "Basic"
+                    },
+                    "dependsOn": [
+                        "[resourceId('Microsoft.Sql/servers', concat(variables('sqlServerName')))]"
+                    ]
+                }
+            ]
+        }
+    ],
+    "outputs": {}
+}

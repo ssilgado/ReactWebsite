@@ -1,0 +1,6 @@
+CREATE TABLE [dbo].[State]
+(
+	[StateId] INT NOT NULL IDENTITY,
+	[Name] VARCHAR(100) NOT NULL,
+	CONSTRAINT pkStateOnStateId PRIMARY KEY (StateId)
+)
