@@ -82,10 +82,10 @@
             ],
             "properties": {
                 "siteConfig": "[variables('configReference')[parameters('language')]]",
-                "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', variables('appServicePlanPortalName'))]",
-                "identity": {
-                    "type": "SystemAssigned"
-                }
+                "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', variables('appServicePlanPortalName'))]"
+            },
+            "identity": {
+                "type": "SystemAssigned"
             }
         }
     ]
