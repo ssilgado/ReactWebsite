@@ -25,6 +25,14 @@ steps:
     projects: '**/*.Database.csproj'
     arguments: '--output $(Build.ArtifactStagingDirectory)'
 
+# Publish Web Project
+- task: DotNetCoreCLI@2
+  inputs:
+    command: 'publish'
+    publishWebProjects: false
+    projects: '**/ReactWebsite.FrontEnd.csproj'
+    arguments: '-o $(Build.ArtifactStagingDirectory)'
+
 # Publish Artifact
 - task: PublishBuildArtifacts@1
   inputs:
