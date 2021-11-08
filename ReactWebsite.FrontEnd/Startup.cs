@@ -1,6 +1,5 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.SpaServices.ReactDevelopmentServer;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -28,6 +27,8 @@ namespace ReactWebsite.FrontEnd
             {
                 configuration.RootPath = "client-app/build";
             });
+
+            services.AddDataAccess();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -1,4 +1,5 @@
 ﻿using System.Reflection;
+using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using ReactWebsite.DataAccess.Entities;
 
@@ -29,7 +30,11 @@ namespace ReactWebsite.DataAccess
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            
+            if (!optionsBuilder.IsConfigured)
+            {
+                var connectionString = @"Server=sqls-reactwebsite-cus-dev.database.windows.net; Initial Catalog=sqldb-reactwebsite-cus-dev; Authentication=Active Directory Default";
+                optionsBuilder.UseSqlServer(new SqlConnection(connectionString));
+            }
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
