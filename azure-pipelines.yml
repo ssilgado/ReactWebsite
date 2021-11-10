@@ -32,6 +32,7 @@ steps:
   inputs:
     Contents: '**\Security\**'
     TargetFolder: '$(Build.ArtifactStagingDirectory)\SqlScript'
+    flattenFolders: true
 
 # Publish Web Project
 - task: DotNetCoreCLI@2
