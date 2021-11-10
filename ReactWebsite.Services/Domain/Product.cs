@@ -7,8 +7,8 @@ namespace ReactWebsite.Services.Domain
         public string Code { get; set; }
         public string Name { get; set; }
 
-        public abstract double getFee();
-        public abstract double getPrice();
-        public abstract double getTax();
+        public abstract double GetFee();
+        public abstract double GetPrice();
+        public abstract double GetTax();
     }
 }

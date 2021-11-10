@@ -18,7 +18,7 @@ namespace ReactWebsite.Services.Domain
             {
                 foreach (var item in InvoiceItems)
                 {
-                    totalTax += item.getTax();
+                    totalTax += item.GetTax();
                 }
             }
             return totalTax;
@@ -28,7 +28,7 @@ namespace ReactWebsite.Services.Domain
             double totalFee = 0;
             foreach (var item in InvoiceItems)
             {
-                totalFee += item.getFee();
+                totalFee += item.GetFee();
             }
             return Math.Round(totalFee, 2, MidpointRounding.AwayFromZero);
         }
@@ -37,7 +37,7 @@ namespace ReactWebsite.Services.Domain
             double totalPrice = 0;
             foreach (var item in InvoiceItems)
             {
-                totalPrice += item.getPrice();
+                totalPrice += item.GetPrice();
             }
             return Math.Round(totalPrice, 2, MidpointRounding.AwayFromZero);
         }

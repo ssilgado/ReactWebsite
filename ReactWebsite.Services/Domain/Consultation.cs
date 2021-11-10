@@ -8,10 +8,10 @@ namespace ReactWebsite.Services.Domain
         public double HourlyFee { get; set; }
         public double BillableHours { get; set; }
 
-        public override double getFee() => SERVICE_FEE;
+        public override double GetFee() => SERVICE_FEE;
 
-        public override double getPrice() => BillableHours * HourlyFee;
+        public override double GetPrice() => BillableHours * HourlyFee;
 
-        public override double getTax() => BillableHours * HourlyFee * TAX_RATE;
+        public override double GetTax() => BillableHours * HourlyFee * TAX_RATE;
     }
 }

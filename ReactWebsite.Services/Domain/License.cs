@@ -14,10 +14,10 @@ namespace ReactWebsite.Services.Domain
 
         private double GetLicenseLengthInYears() => (EndDate - StartDate).TotalDays / 365;
 
-        public override double getFee() => ServiceFee;
+        public override double GetFee() => ServiceFee;
 
-        public override double getPrice() => AnnualFee * LicenseLength;
+        public override double GetPrice() => AnnualFee * LicenseLength;
 
-        public override double getTax() => AnnualFee * LicenseLength * TAX_RATE;
+        public override double GetTax() => AnnualFee * LicenseLength * TAX_RATE;
     }
 }
