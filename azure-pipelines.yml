@@ -27,6 +27,12 @@ steps:
     projects: '**/*.Database.csproj'
     arguments: '--output $(Build.ArtifactStagingDirectory)'
 
+# Copy Sql Scripts To Artifact
+- task: CopyFiles@2
+  inputs:
+    Contents: '**\Security\**'
+    TargetFolder: '$(Build.ArtifactStagingDirectory)\SqlScript'
+
 # Publish Web Project
 - task: DotNetCoreCLI@2
   inputs:
