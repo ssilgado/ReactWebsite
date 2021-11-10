@@ -51,10 +51,23 @@
                         "name": "Basic",
                         "tier": "Basic"
                     },
+                    "properties": {},
                     "dependsOn": [
                         "[resourceId('Microsoft.Sql/servers', concat(variables('sqlServerName')))]"
                     ]
                 }
+            ]
+        },
+        {
+            "type": "Microsoft.Sql/servers/firewallRules",
+            "apiVersion": "2021-02-01-preview",
+            "name": "[format('{0}/{1}', variables('sqlserverName'), 'AllowAllWindowsAzureIps')]",
+            "properties": {
+                "endIpAddress": "0.0.0.0",
+                "startIpAddress": "0.0.0.0"
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Sql/servers', variables('sqlserverName'))]"
             ]
         }
     ],
