@@ -19,14 +19,13 @@ namespace ReactWebsite.FrontEnd
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
-            services.AddControllersWithViews();
-
             // In production, the React files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
             {
                 configuration.RootPath = "client-app/build";
             });
+
+            services.ConfigureWebAPI();
 
             services.AddDataAccess();
         }
@@ -37,6 +36,8 @@ namespace ReactWebsite.FrontEnd
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+                app.UseSwagger();
+                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "ReactWebsite.WebAPI v1"));
             }
             else
             {

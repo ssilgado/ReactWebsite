@@ -1,6 +1,6 @@
 using System;
 
-namespace ReactWebsite.FrontEnd
+namespace ReactWebsite.WebAPI
 {
     public class WeatherForecast
     {
