@@ -1,10 +1,13 @@
 using Microsoft.Extensions.DependencyInjection;
 using ReactWebsite.DataAccess;
 
-public static class IocExtensions
+namespace ReactWebsite.DataAccess.Extensions
 {
-    public static void AddDataAccess(this IServiceCollection services)
+    public static class IocExtensions
     {
-        services.AddDbContext<ReactWebsiteContext>();
+        public static void AddDataAccess(this IServiceCollection services)
+        {
+            services.AddDbContext<ReactWebsiteContext>();
+        }
     }
 }
