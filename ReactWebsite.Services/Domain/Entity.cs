@@ -6,6 +6,6 @@ namespace ReactWebsite.Services.Domain
     {
         public string Code { get; set; }
         public string Name { get; set; }
-        public string Address { get; set; }
+        public Address Address { get; set; }
     }
 }
