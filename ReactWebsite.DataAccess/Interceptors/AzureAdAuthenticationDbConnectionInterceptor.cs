@@ -20,7 +20,8 @@ namespace ReactWebsite.DataAccess.Interceptors
 
         private static readonly TokenCredential _credential = new ChainedTokenCredential(
             new ManagedIdentityCredential(),
-            new VisualStudioCodeCredential());
+            new VisualStudioCodeCredential(),
+            new AzureCliCredential());
 
         public override InterceptionResult ConnectionOpening(
             DbConnection connection,
