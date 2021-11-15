@@ -1,11 +1,15 @@
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.OpenApi.Models;
+using ReactWebsite.Services.Extensions;
+using ReactWebsite.Services.Mappings;
 
 public static class IocExtensions
 {
     public static void ConfigureWebAPI(this IServiceCollection services)
     {
-        services.AddControllers();
+        services.AddControllers().AddNewtonsoftJson();
+
+        services.RegisterServices();
 
         services.AddSwaggerGen(c =>
         {
