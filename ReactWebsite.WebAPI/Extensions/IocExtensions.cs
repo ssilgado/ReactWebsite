@@ -11,5 +11,7 @@ public static class IocExtensions
         {
             c.SwaggerDoc("v1", new OpenApiInfo { Title = "ReactWebsite.WebAPI", Version = "v1" });
         });
+
+        services.AddAutoMapper(typeof(InvoiceProfile));
     }
 }
