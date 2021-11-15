@@ -2,6 +2,7 @@
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using ReactWebsite.DataAccess.Entities;
+using ReactWebsite.DataAccess.Interceptors;
 
 #nullable disable
 
@@ -32,8 +33,9 @@ namespace ReactWebsite.DataAccess
         {
             if (!optionsBuilder.IsConfigured)
             {
-                var connectionString = @"Server=sqls-reactwebsite-cus-dev.database.windows.net; Initial Catalog=sqldb-reactwebsite-cus-dev; Authentication=Active Directory Default";
+                var connectionString = @"Server=sqls-reactwebsite-cus-dev.database.windows.net; Initial Catalog=sqldb-reactwebsite-cus-dev";
                 optionsBuilder.UseSqlServer(new SqlConnection(connectionString));
+                optionsBuilder.AddInterceptors(new AzureAdAuthenticationDbConnectionInterceptor());
             }
         }
 

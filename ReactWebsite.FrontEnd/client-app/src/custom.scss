@@ -1,0 +1,21 @@
+// Set Custom Theme Colors
+$primary: #138A36;
+$secondary: #5a79af;
+$danger: #F02D3A;
+$light: #E5F4E3;
+$white: #E5F4E3;
+$dark: #0D090A;
+$black: #0D090A;
+
+// Set Body Colors
+$body-bg: $dark;
+$body-color: $light;
+
+// Set Text Section Colors
+$code-color: $danger;
+$link-color: $secondary;
+$navbar-dark-color:                 rgba(#FFFFFF, .75);
+$navbar-dark-hover-color:           rgba(#FFFFFF, .95);
+
+// Import Bootstrap and its default variables
+@import '~bootstrap/scss/bootstrap.scss';
