@@ -8,7 +8,7 @@ namespace ReactWebsite.Services.Domain
     {
         public string Code { get; set; }
         public Customer Customer { get; set; }
-        public Person Person { get; set; }
+        public Person SalesPerson { get; set; }
         public double ComplianceFee { get; set; }
         public IList<Product> InvoiceItems { get; set; }
 
