@@ -10,7 +10,7 @@
             "request": "launch",
             "preLaunchTask": "build",
             // If you have changed target frameworks, make sure to update the program path.
-            "program": "${workspaceFolder}/ReactWebsite.FrontEnd/bin/Debug/net5.0/ReactWebsite.FrontEnd.dll",
+            "program": "${workspaceFolder}/ReactWebsite.FrontEnd/bin/Debug/net6.0/ReactWebsite.FrontEnd.dll",
             "args": [],
             "cwd": "${workspaceFolder}/ReactWebsite.FrontEnd",
             "stopAtEntry": false,

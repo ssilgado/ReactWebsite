@@ -1,7 +1,8 @@
-<Project Sdk="MSBuild.Sdk.SqlProj/1.16.2">
+<Project Sdk="MSBuild.Sdk.SqlProj/2.0.0-beta.1">
     <PropertyGroup>
-        <TargetFramework>netstandard2.0</TargetFramework>
+        <TargetFramework>net6.0</TargetFramework>
         <SqlServerVersion>SqlAzure</SqlServerVersion>
+        <ProduceReferenceAssembly>false</ProduceReferenceAssembly>
         <!-- For additional properties that can be set here, please refer to https://github.com/rr-wfm/MSBuild.Sdk.SqlProj#model-properties -->
     </PropertyGroup>
 
